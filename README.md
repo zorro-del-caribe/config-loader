@@ -1,6 +1,6 @@
 # conf-load
 
-[![CircleCI](https://circleci.com/gh/zorro-del-caribe/ship-hold.svg?style=svg)](https://circleci.com/gh/zorro-del-caribe/config-loader)
+[![CircleCI](https://circleci.com/gh/zorro-del-caribe/config-loader.svg?style=svg)](https://circleci.com/gh/zorro-del-caribe/config-loader)
 
 load namespaced configuration based on convention and environment variable (nodejs)
 
