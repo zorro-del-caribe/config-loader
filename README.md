@@ -37,7 +37,7 @@ exports.production = {
 then use **conf-load**
  
  ```javascript
- const conf = require('conf-load)() // can pass options here
+ const conf = require('conf-load')() // can pass options here
  
  conf.value('foo.prop') // 'overwrite in prod' if NODE_ENV is set to 'production' or 'value' otherwise 
  ```
