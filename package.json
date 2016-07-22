@@ -1,6 +1,6 @@
 {
   "name": "conf-load",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "go through a config folder to namespace configuration values and load values based on NODE_ENV",
   "main": "index.js",
   "scripts": {
