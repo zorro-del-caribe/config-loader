@@ -23,5 +23,8 @@
   "license": "MIT",
   "devDependencies": {
     "tape": "^4.6.0"
+  },
+  "dependencies": {
+    "app-root-path": "^1.2.1"
   }
 }

@@ -1,10 +1,11 @@
 const fs = require('fs');
 const path = require('path');
+const appRoot = require('app-root-path');
 
 module.exports = function (options = {}) {
   const env = process.env.NODE_ENV || 'development';
   const opts = Object.assign({folder: './config', exclude: [], strict: true}, options);
-  const folderPath = path.join(__dirname, opts.folder);
+  const folderPath = path.join(appRoot.toString(), opts.folder);
 
   const configFiles = fs.readdirSync(folderPath)
     .filter(f=>opts.exclude.indexOf(f) === -1);
