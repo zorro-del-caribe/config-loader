@@ -15,7 +15,7 @@ assuming you have
 ```
 .
 |
-|---config
+|---conf
 |     |----foo.js
 |     |----bar.js
 
@@ -37,13 +37,11 @@ exports.production = {
 then use **conf-load**
  
  ```javascript
- const conf = require('conf-load')() // can pass options here
+ const conf = require('conf-load')(); // can pass options here
  
- conf.value('foo.prop') // 'overwrite in prod' if NODE_ENV is set to 'production' or 'value' otherwise 
+ conf('foo.prop') // 'overwrite in prod' if NODE_ENV is set to 'production' or 'value' otherwise
  ```
  
  options to path the factory
  
- * folder: the folder to read through to find the config files (default './config')
- * strict: if true throw an error if a config value can not be found (default true)
- * exclude: an array of file to exclude (default empty array)
+ * directory: the folder to read through to find the config files (default './conf')

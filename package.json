@@ -2,9 +2,11 @@
   "name": "conf-load",
   "version": "1.0.4",
   "description": "go through a config folder to namespace configuration values and load values based on NODE_ENV",
-  "main": "index.js",
+  "main": "index",
   "scripts": {
-    "test": "NODE_ENV=test node ./test/index.js"
+    "test": "NODE_ENV=test node ./test/index.js",
+    "test:ci": "NODE_ENV=test node ./test/index.js | tap-set-exit",
+    "build": "babel ./index.mjs --out-dir ."
   },
   "repository": {
     "type": "git",
@@ -17,11 +19,15 @@
     "environment"
   ],
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.0.0"
   },
   "author": "Laurent Renard",
   "license": "MIT",
   "devDependencies": {
-    "tape": "^4.6.0"
+    "babel-cli": "^6.26.0",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "tap-set-exit": "^1.1.1",
+    "zora": "^2.0.1"
   }
 }

@@ -1,26 +1,18 @@
-const test = require('tape');
-const config = require('../index.js');
+const test = require('zora');
+const config = require('../index')['default'];
 
-test('load config based on test env', function (t) {
-  const conf = config({folder: './test/config'});
-  t.equal(conf.value('foo.prop'), 'testValue', 'overwrite value');
-  t.equal(conf.value('foo.defaultProp'), 'defaultValue', 'defaultValue');
-  t.end();
+test('load config based on test env', t => {
+	const conf = config({directory: './test/config'});
+	t.equal(conf('foo.prop'), 'testValue', 'overwrite value');
+	t.equal(conf('foo.defaultProp'), 'defaultValue', 'defaultValue');
 });
 
-test('ignore files', function (t) {
-  const conf = config({folder: './test/config', strict: false, exclude: ['exclude.js']});
-  t.equal(conf.value('exclude.prop'), undefined);
-  t.end();
-});
-
-test('throw errors in strict mode if can not find the conf value', function (t) {
-  const conf = config({folder: './test/config'});
-  try {
-    conf.value('foo.bar');
-    t.fail();
-  } catch (e) {
-    t.equal(e.message, 'could not find the configuration value');
-    t.end();
-  }
+test('throw errors if can not find the conf value', t => {
+	const conf = config({directory: './test/config'});
+	try {
+		conf('foo.bar');
+		t.fail();
+	} catch (e) {
+		t.equal(e.message, 'Invalid configuration path');
+	}
 });

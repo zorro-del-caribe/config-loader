@@ -1,0 +1,4 @@
+.idea
+.circleci
+node_modules
+test
