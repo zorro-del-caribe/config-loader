@@ -1,3 +1,2 @@
-exports.default = {prop: 'value', defaultProp: 'defaultValue'};
-
-exports.test = {prop: 'testValue'};
+"use strict";
+module.exports = { prop: 'value', woot: 'woot-value' };

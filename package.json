@@ -1,12 +1,14 @@
 {
   "name": "conf-load",
-  "version": "2.0.0",
-  "description": "go through a config folder to namespace configuration values and load values based on NODE_ENV",
-  "main": "index",
+  "version": "3.0.0",
+  "description": "go through a config folder to namespace configuration values and load values",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
   "scripts": {
-    "test": "NODE_ENV=test node ./test/index.js",
-    "test:ci": "NODE_ENV=test node ./test/index.js | tap-set-exit",
-    "build": "babel ./index.mjs --out-dir ."
+    "test": "node ./test/index.js",
+    "test:ci": "node ./test/index.js | tap-set-exit",
+    "build": "tsc",
+    "dev": "tsc -w"
   },
   "repository": {
     "type": "git",
@@ -16,7 +18,10 @@
     "configuration",
     "config",
     "loader",
-    "environment"
+    "conf"
+  ],
+  "files": [
+    "src"
   ],
   "engines": {
     "node": ">=8.0.0"
@@ -24,10 +29,10 @@
   "author": "Laurent Renard",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-dynamic-import-node": "^1.2.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "@types/node": "^10.12.21",
     "tap-set-exit": "^1.1.1",
-    "zora": "^2.0.1"
-  }
+    "typescript": "^3.3.1",
+    "zora": "^3.0.0-2"
+  },
+  "dependencies": {}
 }

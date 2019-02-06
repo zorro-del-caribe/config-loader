@@ -2,11 +2,11 @@
 
 [![CircleCI](https://circleci.com/gh/zorro-del-caribe/config-loader.svg?style=svg)](https://circleci.com/gh/zorro-del-caribe/config-loader)
 
-load namespaced configuration based on convention and environment variable (nodejs)
+load configuration based on namespaces and conventions.
 
-## install 
+## install
 
-``npm install conf-load``
+``npm install --save conf-load``
 
 ## usage
 
@@ -15,33 +15,41 @@ assuming you have
 ```
 .
 |
-|---conf
-|     |----foo.js
-|     |----bar.js
+|---src
+|   |---conf
+|       |---foo.js
+|       |---bar.js
 
 ```
 
-foo.js and bar.js following the pattern
+with bar.js
 
 ```javascript
-exports.default ={
-   prop:'value',
-   other:'bar'
+module.exports = {
+    some: 'thing',
+    another: {
+        thing: 'yeah'
+    }
 };
+```
 
-exports.production = {
-   prop:'overwrite in prod'
-};
+and foo.js
+
+```Javascript
+module.exports = { prop: 'value', woot: 'woot-value' };
 ```
 
 then use **conf-load**
- 
+
  ```javascript
- const conf = require('conf-load')(); // can pass options here
- 
- conf('foo.prop') // 'overwrite in prod' if NODE_ENV is set to 'production' or 'value' otherwise
+ const {load} = require('conf-load');
+ const conf = load() // can pass options here
+
+ conf('foo.prop'); // > 'value'
+ conf('bar.another.thing'); // > 'yeah'
  ```
- 
- options to path the factory
- 
- * directory: the folder to read through to find the config files (default './conf')
+
+### options
+
+* directory: string -> the folder to read through to find the config files (default './src/conf')
+* strict: boolean -> whether it should throw if it can not find a conf value at the corresponding path (default true) otherwise it returns undefined
