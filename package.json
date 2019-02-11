@@ -29,9 +29,9 @@
   "author": "Laurent Renard",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^10.12.21",
+    "@types/node": "^10.12.24",
     "tap-set-exit": "^1.1.1",
-    "typescript": "^3.3.1",
+    "typescript": "^3.3.3",
     "zora": "^3.0.0-2"
   },
   "dependencies": {}
